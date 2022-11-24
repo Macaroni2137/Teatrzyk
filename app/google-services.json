@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "760328371624",
+    "project_id": "teatrzyk-db",
+    "storage_bucket": "teatrzyk-db.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:760328371624:android:a8035c6653c1927100719d",
+        "android_client_info": {
+          "package_name": "com.company.teatrzyk"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "760328371624-lebp84ee62h7imm2qr1j7nebg6uu587t.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCcFr2ozkwunnthMRRCf4TRqX5R4aTptsw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "760328371624-lebp84ee62h7imm2qr1j7nebg6uu587t.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:760328371624:android:e276c37d1f22817000719d",
+        "android_client_info": {
+          "package_name": "com.example.loginkino"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "760328371624-lebp84ee62h7imm2qr1j7nebg6uu587t.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCcFr2ozkwunnthMRRCf4TRqX5R4aTptsw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "760328371624-lebp84ee62h7imm2qr1j7nebg6uu587t.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
