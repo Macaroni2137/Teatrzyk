@@ -102,6 +102,15 @@
                 android:text="Zarejestruj się."
                 android:textAllCaps="false"/>
 
+            <TextView
+                android:id="@+id/miejsce"
+                android:layout_marginTop="60dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/primaryColor"
+                android:text="wybor miejsc (pozniej bedzie w odpowiedniej zakladce)"
+                android:textAllCaps="false"/>
+
         </RelativeLayout>
 
     </LinearLayout>

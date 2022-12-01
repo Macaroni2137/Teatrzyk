@@ -16,6 +16,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 public class StartActivity extends AppCompatActivity {
 
@@ -24,14 +25,15 @@ public class StartActivity extends AppCompatActivity {
     private Button login;
 
     private FirebaseAuth auth;
-
-
     private TextView register;
+
+    private TextView miejsce;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start);
+
 
         email = findViewById(R.id.email);
         password = findViewById(R.id.password);
@@ -41,18 +43,22 @@ public class StartActivity extends AppCompatActivity {
 
         register = findViewById(R.id.register);
 
-        login.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String txt_email = email.getText().toString();
-                String txt_password = password.getText().toString();
-                loginUser(txt_email, txt_password);
-            }
+        miejsce = findViewById(R.id.miejsce);
+
+        login.setOnClickListener(v -> {
+            String txt_email = email.getText().toString();
+            String txt_password = password.getText().toString();
+            loginUser(txt_email, txt_password);
         });
 
         register.setOnClickListener((v)->{
                 startActivity(new Intent( StartActivity.this , RegisterActivity.class));
                 finish();
+        });
+
+        miejsce.setOnClickListener((v)->{
+            startActivity(new Intent( StartActivity.this , MiejscaActivity.class));
+            finish();
         });
 
     }
