@@ -7,6 +7,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.Button;
@@ -17,7 +18,7 @@ import com.google.android.material.navigation.NavigationView;
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private DrawerLayout drawer;
-
+    public NavigationView mNavigationView;
     private Button logout;
 
     @Override
@@ -37,7 +38,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         toggle.syncState();
 
         if(savedInstanceState == null){
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new ReservationFragmentOld()).commit();
+            Intent fail = new Intent(MainActivity.this, MiejscaActivity.class);
+            startActivity(fail.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION));
+            mNavigationView.setCheckedItem(R.id.nav_reservation);
             navigationView.setCheckedItem(R.id.nav_reservation);
         }
 
@@ -58,13 +61,19 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
             case R.id.nav_profile:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new ProfileFragment()).commit();
+                Intent profile = new Intent(MainActivity.this, ProfileActivity.class);
+                startActivity(profile.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION));
+                mNavigationView.setCheckedItem(R.id.nav_profile);
                 break;
             case R.id.nav_tickets:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new TicketsFragment()).commit();
+                Intent tickets = new Intent(MainActivity.this, TicketsActivity.class);
+                startActivity(tickets.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION));
+                mNavigationView.setCheckedItem(R.id.nav_tickets);
                 break;
             case R.id.nav_reservation:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new ReservationFragmentOld()).commit();
+                Intent res = new Intent(MainActivity.this, MiejscaActivity.class);
+                startActivity(res.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION));
+                mNavigationView.setCheckedItem(R.id.nav_reservation);
                 break;
             case R.id.logout:
                 Toast.makeText(this, "logout", Toast.LENGTH_SHORT).show();
@@ -83,4 +92,5 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             super.onBackPressed();
         }
     }
+
 }
