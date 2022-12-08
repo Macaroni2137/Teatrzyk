@@ -7,6 +7,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -19,8 +20,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     private DrawerLayout drawer;
     public NavigationView mNavigationView;
+    private ActionBarDrawerToggle toggle;
     private Button logout;
 
+    @SuppressLint("RestrictedApi")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,15 +36,16 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(MainActivity.this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        toggle = new ActionBarDrawerToggle(MainActivity.this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
+
+        getSupportActionBar().setDefaultDisplayHomeAsUpEnabled(true);
 
         if(savedInstanceState == null){
             Intent fail = new Intent(MainActivity.this, MiejscaActivity.class);
             startActivity(fail.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION));
             mNavigationView.setCheckedItem(R.id.nav_reservation);
-            navigationView.setCheckedItem(R.id.nav_reservation);
         }
 
         //        logout = findViewById(R.id.logout);
@@ -55,6 +59,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 //                finish();
 //            }
 //        });
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item){
+        if(toggle.onOptionsItemSelected(item)){
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     @Override

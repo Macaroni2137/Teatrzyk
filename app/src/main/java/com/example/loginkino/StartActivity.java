@@ -27,7 +27,6 @@ public class StartActivity extends AppCompatActivity {
     private FirebaseAuth auth;
     private TextView register;
 
-    private TextView miejsce;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,8 +42,6 @@ public class StartActivity extends AppCompatActivity {
 
         register = findViewById(R.id.register);
 
-        miejsce = findViewById(R.id.miejsce);
-
         login.setOnClickListener(v -> {
             String txt_email = email.getText().toString();
             String txt_password = password.getText().toString();
@@ -54,11 +51,6 @@ public class StartActivity extends AppCompatActivity {
         register.setOnClickListener((v)->{
                 startActivity(new Intent( StartActivity.this , RegisterActivity.class));
                 finish();
-        });
-
-        miejsce.setOnClickListener((v)->{
-            startActivity(new Intent( StartActivity.this , MiejscaActivity.class));
-            finish();
         });
 
     }
