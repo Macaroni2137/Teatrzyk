@@ -60,7 +60,6 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
 
-
     private void registerUser(String email, String password) {
 
         auth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(RegisterActivity.this, new OnCompleteListener<AuthResult>() {

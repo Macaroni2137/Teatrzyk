@@ -38,6 +38,7 @@ public class StartActivity extends AppCompatActivity {
         password = findViewById(R.id.password);
         login = findViewById(R.id.login);
 
+
         auth = FirebaseAuth.getInstance();
 
         register = findViewById(R.id.register);
@@ -46,15 +47,19 @@ public class StartActivity extends AppCompatActivity {
             String txt_email = email.getText().toString();
             String txt_password = password.getText().toString();
             loginUser(txt_email, txt_password);
+
         });
 
         register.setOnClickListener((v)->{
                 startActivity(new Intent( StartActivity.this , RegisterActivity.class));
                 finish();
         });
+        email.setOnClickListener((v)->{
+            startActivity(new Intent( StartActivity.this , MiejscaActivity.class));
+            finish();
+        });
 
     }
-
     private void loginUser(String email, String password) {
         auth.signInWithEmailAndPassword(email, password).addOnCompleteListener(StartActivity.this, new OnCompleteListener<AuthResult>() {
             @Override
@@ -63,10 +68,17 @@ public class StartActivity extends AppCompatActivity {
                     Toast.makeText(StartActivity.this, "Zalogowano pomyślnie", Toast.LENGTH_SHORT).show();
                     startActivity(new Intent(StartActivity.this, MainActivity.class));
                     finish();
+                    String userEmail = auth.getCurrentUser().getEmail();
+                    // Utwórz nowe intent i przejdź do pliku MiejscaActivity, przekazując email jako dodatkowy parametr
+                    Intent intent = new Intent(StartActivity.this, MiejscaActivity.class);
+                    intent.putExtra("userEmail", userEmail);
+                    startActivity(intent);
+                    finish();
                 }else {
                     Toast.makeText(StartActivity.this, "Logowanie nieudane, sprawdź wpisane dane", Toast.LENGTH_SHORT).show();
                 }
             }
         });
     }
+
 }

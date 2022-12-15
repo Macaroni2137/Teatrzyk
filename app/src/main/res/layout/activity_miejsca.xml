@@ -13,11 +13,57 @@
         android:layout_height="wrap_content"
         android:id="@+id/date_picker"/>
 
-    <Button
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Zarezerwuj salę"
-        android:id="@+id/submit_button"/>
+        android:gravity="center"
+        >
 
+        <Button
+            android:id="@+id/submit_button"
+            android:layout_width="140dp"
+            android:layout_height="wrap_content"
+            android:text="ZAREZERWUJ SALĘ"
+            android:textAllCaps="false"
+            android:textColor="@color/primaryColorHighlight" />
+
+        <Button
+            android:layout_marginLeft="20dp"
+            android:id="@+id/movies_button"
+            android:layout_width="140dp"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/textView1_2"
+            android:text="CO TERAZ GRAMY?"
+            android:textAllCaps="false"
+            android:textColor="@color/primaryColorHighlight" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginTop="10dp"
+        >
+
+        <TextView
+            android:id="@+id/textView1_2"
+            android:layout_width="110dp"
+            android:layout_height="wrap_content"
+            android:text="Masz problem?"
+            android:textAllCaps="false"
+            android:layout_marginLeft="10dp"
+            android:textColor="@color/primaryColorHighlight" />
+
+        <TextView
+            android:id="@+id/contact_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/textView1_2"
+            android:text="Napisz do nas!"
+            android:textAllCaps="false"
+            android:textColor="@color/primaryColor" />
+
+    </LinearLayout>
 
 </LinearLayout>
